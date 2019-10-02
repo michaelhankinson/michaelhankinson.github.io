@@ -1,42 +1,73 @@
 <!DOCTYPE html>
 <!-- saved from url=(0095)file:///C:/Users/hanki/Documents/GitHub/GTATL201905DATA3/11-Web/Homework/Instructions/Data.html -->
 <html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="file:///C:/Users/hanki/Documents/GitHub/GTATL201905DATA3/11-Web/Homework/Instructions/Data_files/bootstrap.min.css">  
+<link rel="stylesheet" href="Data_files/bootstrap.min.css">  
   <title>Visualization Dashboard</title>
-      <script src="file:///C:/Users/hanki/Documents/GitHub/GTATL201905DATA3/11-Web/Homework/Instructions/Data_files/jquery.min.js.download"></script>
-    <script src="file:///C:/Users/hanki/Documents/GitHub/GTATL201905DATA3/11-Web/Homework/Instructions/Data_files/popper.min.js.download"></script>
-    <script src="file:///C:/Users/hanki/Documents/GitHub/GTATL201905DATA3/11-Web/Homework/Instructions/Data_files/bootstrap.min.js.download"></script>
+      <script src="Data_files/jquery.min.js.download"></script>
+    <script src="Data_files/popper.min.js.download"></script>
+    <script src="Data_files/bootstrap.min.js.download"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/rowreorder/1.1.2/css/rowReorder.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.dataTables.min.css">
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/rowreorder/1.1.2/js/dataTables.rowReorder.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
 </head>
 
 <body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">         <a class="navbar-brand" href="file:///C:/Users/hanki/Documents/GitHub/GTATL201905DATA3/11-Web/Homework/Instructions/Visualization%20Dashboard.html">Visualization </a>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">         <a class="navbar-brand" href="Visualization%20Dashboard.html">Visualization </a>
     <ul class="navbar-nav">
       <li class="nav-item">
-          <a class="nav-link" href="file:///C:/Users/hanki/Documents/GitHub/GTATL201905DATA3/11-Web/Homework/Instructions/Visualization%20Dashboard.html">Landing</a></li>
+          <a class="nav-link" href="Visualization%20Dashboard.html">Landing</a></li>
  <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbardrop" href="file:///C:/Users/hanki/Documents/GitHub/GTATL201905DATA3/11-Web/Homework/Instructions/Visualization%20Dashboard.html" aria-expanded="false">Plots</a>
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbardrop" href="Visualization%20Dashboard.html" aria-expanded="false">Plots</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="file:///C:/Users/hanki/Documents/GitHub/GTATL201905DATA3/11-Web/Homework/Instructions/First.html">Page 1</a>
-      <a class="dropdown-item" href="file:///C:/Users/hanki/Documents/GitHub/GTATL201905DATA3/11-Web/Homework/Instructions/Second.html">Page 2</a>
-    <a class="dropdown-item" href="file:///C:/Users/hanki/Documents/GitHub/GTATL201905DATA3/11-Web/Homework/Instructions/Third.html">Page 3</a>
-<a class="dropdown-item" href="file:///C:/Users/hanki/Documents/GitHub/GTATL201905DATA3/11-Web/Homework/Instructions/Fourth.html">Page 4</a>
-<a class="dropdown-item" href="file:///C:/Users/hanki/Documents/GitHub/GTATL201905DATA3/11-Web/Homework/Instructions/Data.html">Data Page </a>
-<a class="dropdown-item" href="file:///C:/Users/hanki/Documents/GitHub/GTATL201905DATA3/11-Web/Homework/Instructions/Summary.html">Summary Page </a>
+          <a class="dropdown-item" href="First.html">Page 1</a>
+      <a class="dropdown-item" href="Second.html">Page 2</a>
+    <a class="dropdown-item" href="Third.html">Page 3</a>
+<a class="dropdown-item" href="Fourth.html">Page 4</a>
+<a class="dropdown-item" href="Data.html">Data Page </a>
+<a class="dropdown-item" href="Summary.html">Summary Page </a>
 </div>
 </li>
 </ul>
 
 </nav>
-  <p>Visualization Dashboard</p>
+  <p>Visualization Dashboard Data Page</p>
 
-  <img class="mx-auto d-block" src="file:///C:/Users/hanki/Documents/GitHub/GTATL201905DATA3/11-Web/Homework/Instructions/Images/first%20image%20to%20display.png" alt="Your Name" width="300" height="300">
+  <img class="mx-auto d-block" src="Images/first%20image%20to%20display.png" alt="Your Name" width="300" height="300">
 
   <h1 class="jumbotron">This is a visualization project to give the reader multiple perspectives on a project we did.</h1>
   <h2>A summary page is also available</h2>
 
 <img c:\users\hanki\documents\github\gtatl201905data3\11-web\homework\instructions\city_data.mht="">  
 
-  
+<script type="text/javascript">
+  var allText =[];
+  var allTextLines = [];
+  var Lines = [];
+
+  var txtFile = new XMLHttpRequest();
+  txtFile.open("GET", "ride_data.csv", true);
+  txtFile.onreadystatechange = function()
+  {
+      allText = txtFile.responseText;
+      allTextLines = allText.split(/\r\n|\n/);
+  };
+
+  document.write(allTextLines);<br>
+  document.write(allText);<br>
+  document.write(txtFile);<br>
+</script> 
+
+
+<script>
+  CsvToHtmlTable.init({
+    csv_path: 'ride_data.csv',
+    element: 'table-container', 
+    allow_download: true,
+    csv_options: {separator: ';', delimiter: '"'},
+    datatables_options: {"paging": false}
+  });
+</script>
 
 
 
